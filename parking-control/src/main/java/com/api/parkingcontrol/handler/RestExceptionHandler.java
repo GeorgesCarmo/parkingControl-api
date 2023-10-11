@@ -28,7 +28,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler{
 		return new ResponseEntity<>(BadRequestExceptionDetails.builder()
 				.timestamp(LocalDateTime.now())
 				.status(HttpStatus.BAD_REQUEST.value())
-				.title("Bad request exception, check the documentation")
+				.title("Bad request exception, check the fields")
 				.developerMessage(bre.getClass().getName())
 				.build(), HttpStatus.BAD_REQUEST);
 	}

@@ -12,4 +12,10 @@ import com.api.parkingcontrol.domain.ParkingSpot;
 public interface ParkingSpotRepository extends JpaRepository<ParkingSpot, UUID> {
 
 	List<ParkingSpot> findByResponsibleName(String responsibleName);
+	
+	boolean existsByLicensePlateCar(String licensePlateCar);
+
+	boolean existsByParkingSpotNumber(String parkingSpotNumber);
+	
+	boolean existsByApartmentAndBlock(String apartment, String block);
 }

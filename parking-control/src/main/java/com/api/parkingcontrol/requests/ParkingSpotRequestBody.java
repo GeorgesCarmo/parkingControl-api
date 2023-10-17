@@ -1,12 +1,19 @@
 package com.api.parkingcontrol.requests;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ParkingSpotRequestBody {
 	
 	@NotBlank
@@ -25,7 +32,7 @@ public class ParkingSpotRequestBody {
 	@NotBlank
 	private String colorCar;
 	
-	@NotBlank
+	@NotEmpty(message = "The responsible name cannot be empty")
 	private String responsibleName;
 	
 	@NotBlank

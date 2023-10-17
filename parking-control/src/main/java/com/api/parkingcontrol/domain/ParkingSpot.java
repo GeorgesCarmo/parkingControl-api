@@ -10,13 +10,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "TB_PARKING_SPOT")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ParkingSpot implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -43,6 +50,7 @@ public class ParkingSpot implements Serializable{
 	@Column(nullable = false)
 	private LocalDateTime registrationDate;
 	
+	@NotEmpty(message = "The responsible name cannot be empty")
 	@Column(nullable = false, length = 130)
 	private String responsibleName;
 	
